@@ -4,10 +4,10 @@
       <a-layout-sider v-model:collapsed="collapsed" collapsible>
         <div class="logo" />
         <a-menu theme="dark" v-model:selectedKeys="selectedKeys" mode="inline">
-          <a-menu-item key="1">
+          <a-menu-item key="index" @click="handleTo('index','/')">
             <span>Option 1</span>
           </a-menu-item>
-          <a-menu-item key="2">
+          <a-menu-item key="check" @click="handleTo('check','/check')">
             <span>Option 2</span>
           </a-menu-item>
           <a-sub-menu key="sub1">
@@ -16,9 +16,9 @@
               <span>User</span>
             </span>
             </template>
-            <a-menu-item key="3">Tom</a-menu-item>
-            <a-menu-item key="4">Bill</a-menu-item>
-            <a-menu-item key="5">Alex</a-menu-item>
+            <a-menu-item key="tom" @click="handleTo('tom','/tom')">Tom</a-menu-item>
+            <a-menu-item key="bill" @click="handleTo('bill','/bill')">Bill</a-menu-item>
+            <a-menu-item key="alex" @click="handleTo('alex','/alex')">Alex</a-menu-item>
           </a-sub-menu>
           <a-sub-menu key="sub2">
             <template #title>
@@ -26,10 +26,10 @@
               <span>Team</span>
             </span>
             </template>
-            <a-menu-item key="6">Team 1</a-menu-item>
-            <a-menu-item key="8">Team 2</a-menu-item>
+            <a-menu-item key="development" @click="handleTo('development','/development')">开发部</a-menu-item>
+            <a-menu-item key="testing" @click="handleTo('testing','/testing')">测试部</a-menu-item>
           </a-sub-menu>
-          <a-menu-item key="9">
+          <a-menu-item key="file" @click="handleTo('file','/file')">
             <span>File</span>
           </a-menu-item>
         </a-menu>
@@ -57,14 +57,24 @@
 </template>
 
 <script setup>
-import { defineProps, ref } from 'vue'
+import { defineProps, ref, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
 defineProps({
   msg: String
 })
 
 let collapsed = ref(false)
-let selectedKeys = ref(['1'])
+
+
+const router = useRouter()
+const route = useRoute()
+
+let selectedKeys = ref(['index'])
+
+  const handleTo = (name,path) => {
+    router.push({ path })
+  }
 
 </script>
 

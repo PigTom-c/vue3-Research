@@ -1,47 +1,28 @@
 <template>
-    <div :style="{ borderBottom: '1px solid #E9E9E9' }">
-        <a-checkbox
-                v-model:checked="checkAll"
-                :indeterminate="indeterminate"
-                @change="onCheckAllChange"
-        >
-            Check all
-        </a-checkbox>
-    </div>
-    <br />
-    <a-checkbox-group v-model:value="checkedList" :options="plainOptions" />
+    <a-carousel autoplay>
+        <div v-for="list in imgList">
+            <img :src="list" />
+        </div>
+    </a-carousel>
 </template>
-<script lang="ts">
-    import { defineComponent, reactive, toRefs, watch } from 'vue';
-    const plainOptions = ['Apple', 'Pear', 'Orange'];
-    export default defineComponent({
-        setup() {
-            // Map map = new Map();
-            const state = reactive({
-                indeterminate: true,
-                checkAll: false,
-                checkedList: ['Apple', 'Orange'],
-            });
+<script lang="ts" setup>
+    import one from '/@/assets/images/1.jpg'
+    import two from '/@/assets/images/2.jpg'
+    import three from '/@/assets/images/3.jpg'
+    import four from '/@/assets/images/4.jpg'
 
-            const onCheckAllChange = (e: any) => {
-                Object.assign(state, {
-                    checkedList: e.target.checked ? plainOptions : [],
-                    indeterminate: false,
-                });
-            };
-            watch(
-                () => state.checkedList,
-                val => {
-                    state.indeterminate = !!val.length && val.length < plainOptions.length;
-                    state.checkAll = val.length === plainOptions.length;
-                },
-            );
-
-            return {
-                ...toRefs(state),
-                plainOptions,
-                onCheckAllChange,
-            };
-        },
-    });
+    const imgList = [one, two, three, four]
 </script>
+
+<style scoped>
+    .ant-carousel :deep(.slick-slide) {
+        text-align: center;
+        height: 100%;
+        line-height: 160px;
+        background: white;
+    }
+
+    .ant-carousel :deep(.slick-slide h3) {
+        color: #fff;
+    }
+</style>
