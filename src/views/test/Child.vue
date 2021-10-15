@@ -13,11 +13,12 @@
 
     const { expose,attrs } = useContext()
 
-    const emit = defineEmit(['update'])
+    const emit = defineEmit(['update','update:value'])
 
     onMounted(() => {
         emit('update', [{age: '18'},{age: '25'},{age: '28'},])
-        console.log(props.value);
+        // 修改传进来的value值
+        emit('update:value', '我被修改了')
     })
 
     let son = ref('我是子组件')

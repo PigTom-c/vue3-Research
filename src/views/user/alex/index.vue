@@ -41,7 +41,6 @@
 <script lang="ts" setup>
     import { ref } from 'vue';
     import moment from 'moment';
-
     type Comment = Record<string, string>;
 
     const comments = ref<Comment[]>([]);

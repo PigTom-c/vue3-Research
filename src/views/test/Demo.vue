@@ -1,12 +1,11 @@
 <template>
-    <Child :value="value" @update="handeleLog" ref="sonRef" />
+    <Child v-model:value="value" @update="handeleLog" ref="sonRef" />
 
     <div class="flex">
         <a-button @click="updateSonValue"> clike me</a-button>
         <a-button @click="handleSonFn">调用子组件的方法</a-button>
         <a-button @click="handleClick" v-preventClick>test</a-button>
     </div>
-
 
 </template>
 
@@ -40,10 +39,6 @@
             return
         }
         state.value = 'nice day'
-    }
-
-    const showChange = (event) => {
-        console.log(event.target.value)
     }
 
     const { value } = { ...toRefs(state) }

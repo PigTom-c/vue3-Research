@@ -4,7 +4,6 @@ import type { Directive, DirectiveBinding } from 'vue';
 const preventClick: Directive = {
     beforeMount(el, binding: DirectiveBinding<any>) {
         el.addEventListener('click', () => {
-            console.log('111sss')
             if (!el.disabled) {
                 el.disabled = true
                 setTimeout(() => {
