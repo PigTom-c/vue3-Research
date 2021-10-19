@@ -9,9 +9,8 @@
     import one from '/@/assets/images/1.jpg'
     import two from '/@/assets/images/2.jpg'
     import three from '/@/assets/images/3.jpg'
-    import four from '/@/assets/images/4.jpg'
 
-    const imgList = [one, two, three, four]
+    const imgList = [one, two, three]
 </script>
 
 <style scoped>
