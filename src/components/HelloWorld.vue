@@ -35,8 +35,8 @@
         </a-menu>
       </a-layout-sider>
       <a-layout>
-        <a-layout-header style="background: #fff;padding-right: 20px;display: flex;justify-content: flex-end;" >
-          hello !
+        <a-layout-header @click="openNotification" style="background: #fff;padding-right: 20px;display: flex;justify-content: flex-end;" >
+          hello someone!
         </a-layout-header>
         <a-layout-content style="margin: 0 16px">
           <a-breadcrumb style="margin: 16px 0">
@@ -57,13 +57,11 @@
 </template>
 
 <script setup>
-import { defineProps, ref, watch } from 'vue'
+import { h, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-
-defineProps({
-  msg: String
-})
-
+import { notification } from 'ant-design-vue';
+import { SmileOutlined } from '@ant-design/icons-vue';
+import axios from 'axios';
 let collapsed = ref(false)
 
 
@@ -76,6 +74,12 @@ let selectedKeys = ref(['index'])
     router.push({ path })
   }
 
+  const openNotification = () => {
+    notification.open({
+      message: '世上会有很多出人意料的事，比如，你以为我会举个例子。',
+      icon: h(SmileOutlined, { style: 'color: #108ee9' }),
+    });
+  }
 </script>
 
 <style scoped>

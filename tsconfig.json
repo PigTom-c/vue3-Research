@@ -16,9 +16,22 @@
         "types": ["vite/client"],
         "baseUrl": ".",
         "paths": {
-            "/@/*": ["src/*"]
+            "/@/*": ["src/*"],
+            "/#/*": ["types/*"]
         }
     },
-    "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.d.ts",
+        "src/**/*.tsx",
+        "src/**/*.vue",
+        "types/**/*.d.ts",
+        "types/**/*.ts",
+        "build/**/*.ts",
+        "build/**/*.d.ts",
+        "mock/**/*.ts",
+        "vite.config.ts"
+    ],
+    "exclude": ["node_modules", "dist", "**/*.js"]
 }
 
