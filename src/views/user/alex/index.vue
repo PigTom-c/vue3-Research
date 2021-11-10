@@ -26,7 +26,7 @@
             </template>
             <template #content>
                 <a-form-item>
-                    <a-textarea :rows="4" v-model:value="value" />
+                    <a-textarea v-model:value="value" :rows="4" />
                 </a-form-item>
                 <a-form-item>
                     <a-button html-type="submit" :loading="submitting" type="primary" @click="handleSubmit">
@@ -40,7 +40,10 @@
 
 <script lang="ts" setup>
     import { ref } from 'vue';
-    import moment from 'moment';
+    import dayjs from 'dayjs';
+    import relativeTime from 'dayjs/plugin/relativeTime';
+    dayjs.extend(relativeTime);
+
     type Comment = Record<string, string>;
 
     const comments = ref<Comment[]>([]);
@@ -60,7 +63,7 @@
                     author: 'Han Solo',
                     avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
                     content: value.value,
-                    datetime: moment().fromNow(),
+                    datetime: dayjs().fromNow(),
                 },
                 ...comments.value,
             ];

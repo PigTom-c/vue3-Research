@@ -13,7 +13,7 @@
                 <a-statistic-countdown
                         title="Million Seconds"
                         :value="state.deadline"
-                        format="HH:mm:ss:SSS"
+                        format="H 时 m 分 s 秒"
                         style="margin-right: 50px"
                 />
             </a-col>
@@ -27,8 +27,9 @@
 <script lang="ts" setup>
     import { reactive } from 'vue'
     const state = reactive({
-        deadline: Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30
+        deadline: new Date('2021-12-22')
     })
+
     const onFinish = () => {
         console.log('finished!');
     };
