@@ -6,18 +6,26 @@
     "build": "vite build"
   },
   "dependencies": {
-    "lodash-es": "^4.17.21",
-    "axios": "^0.21.1",
+    "@ckpack/vue-color": "^1.1.4",
     "@types/node": "^15.12.4",
+    "animejs": "^3.2.1",
     "ant-design-vue": "3.0.0-alpha.11",
+    "axios": "^0.21.1",
+    "lodash-es": "^4.17.21",
     "tailwindcss": "1.4.6",
-    "vue": "^3.0.5",
+    "vue": "^3.2.21",
     "vue-router": "^4.0.10"
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.4",
     "@vitejs/plugin-vue": "^1.2.3",
     "@vue/compiler-sfc": "^3.0.5",
+    "autoprefixer": "^10.4.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "postcss": "^8.3.11",
+    "prettier": "^2.4.1",
+    "tailwindcss": "^2.2.19",
     "vite": "^2.3.8"
   }
 }

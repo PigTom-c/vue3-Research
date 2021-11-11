@@ -5,7 +5,7 @@ import Antd from 'ant-design-vue';
 import { setupRouter} from './router'
 
 import 'ant-design-vue/dist/antd.css';
-import "./assets/css/tailwind.css"
+import "/@/assets/css/tailwind.css"
 import "tailwindcss/tailwind.css"
 
 import { setupGlobDirectives } from './utils/instructions/index'

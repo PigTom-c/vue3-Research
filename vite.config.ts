@@ -22,5 +22,5 @@ export default defineConfig({
   server: {
     port: 3022,
     open: true
-  }
+  },
 })
