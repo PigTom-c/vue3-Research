@@ -5,6 +5,7 @@
 <script setup lang="ts">
   import Child from './Child.vue';
   import { provide } from 'vue';
+  import { functions } from 'lodash-es';
 
   provide('test', 111);
 </script>
