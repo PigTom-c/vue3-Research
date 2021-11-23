@@ -1,6 +1,10 @@
 import { ref, reactive, effect } from 'vue';
 
-type useFetchType = [response: Response | null | undefined, error: Error, isLoding: boolean];
+type useFetchType = {
+  response: Response | null | undefined;
+  error: Error;
+  isLoding: boolean;
+};
 
 export default function useFetch(request: RequestInfo, init?: RequestInit): useFetchType {
   // const [response, setResponse] = ref<null | Response>();
