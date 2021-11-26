@@ -16,7 +16,8 @@
     "tailwindcss": "1.4.6",
     "vue": "^3.2.21",
     "vue-echarts": "^6.0.0",
-    "vue-router": "^4.0.10"
+    "vue-router": "^4.0.10",
+    "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.4",
