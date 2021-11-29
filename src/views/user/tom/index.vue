@@ -2,7 +2,7 @@
   <div>
     <div class="flex flex-row w-full">
       <div class="w-1/6">
-        <Card title="需求池">
+        <Card class="h-full" title="需求池">
           <template #extra><Tag color="blue">月</Tag></template>
           <draggable class="list-group" :list="state.list1" group="people" itemKey="name">
             <template #item="{ element, index }">
@@ -17,7 +17,7 @@
       </div>
 
       <div class="w-1/6 ml-10">
-        <Card title="开发中">
+        <Card class="h-full" title="开发中">
           <template #extra><Tag color="blue">月</Tag></template>
           <draggable class="list-group" :list="state.list2" group="people" itemKey="name">
             <template #item="{ element, index }">
@@ -30,8 +30,9 @@
           </draggable>
         </Card>
       </div>
+
       <div class="w-1/6 ml-10">
-        <Card title="已完成">
+        <Card class="h-full" title="已完成">
           <template #extra><Tag color="blue">月</Tag></template>
           <draggable class="list-group" :list="state.list3" group="people" itemKey="name">
             <template #item="{ element, index }">
@@ -44,8 +45,9 @@
           </draggable>
         </Card>
       </div>
+
       <div class="w-1/6 ml-10">
-        <Card title="已验收">
+        <Card class="h-full" title="已验收">
           <template #extra><Tag color="blue">月</Tag></template>
           <draggable class="list-group" :list="state.list4" group="people" itemKey="name">
             <template #item="{ element, index }">
