@@ -44,9 +44,9 @@
   });
 
   const state = reactive({
-    distancePayroll: new Date('2021-12-22'),
-    distanceChristmas: new Date('2021-12-25'),
-    deadline: new Date('2022-1-22'),
+    distancePayroll: new Date('2021-12-22 00:00:00'),
+    distanceChristmas: new Date('2021-12-25 00:00:00'),
+    deadline: new Date('2022-1-22 00:00:00'),
   });
 
   // todo
