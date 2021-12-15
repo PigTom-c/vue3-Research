@@ -1,7 +1,12 @@
 <template>
   <Child />
   <a-select class="w-1/6" v-model:value="state.value" :options="state.options" />
-  <v-chart v-show="state.value === 'pie'" class="chart" :init-options="state.initOptions" :option="option" />
+  <v-chart
+    v-show="state.value === 'pie'"
+    class="chart"
+    :init-options="state.initOptions"
+    :option="option"
+  />
 
   <div v-show="state.value !== 'pie'" class="flex justify-center flex-row flex-wrap">
     <a-button @click="refresh" :disabled="state.seconds > 0">Refresh</a-button>
@@ -18,7 +23,7 @@
   </div>
 
   <v-chart
-    class="chart"
+    class="chart mt-10"
     :option="state.map"
     :init-options="state.initOptions"
     ref="map"
@@ -101,7 +106,7 @@
       {
         name: 'Traffic Sources',
         type: 'pie',
-        radius: '55%',
+        radius: ['40%', '70%'],
         center: ['50%', '60%'],
         data: [
           { value: 335, name: 'Direct' },
@@ -137,14 +142,14 @@
     options: [
       {
         label: '饼图',
-        value: 'pie'
+        value: 'pie',
       },
       {
         label: '柱状图',
-        value: 'bar'
-      }
+        value: 'bar',
+      },
     ],
-    value: 'pie'
+    value: 'pie',
   });
 
   // registering map data
