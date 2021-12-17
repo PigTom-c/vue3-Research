@@ -6,8 +6,10 @@
             </div>
         </a-modal>
         <a-table :columns="columns" :data-source="data">
-            <template #name="{ text }">
+            <template #bodyCell="{ column, text }">
+              <template v-if="column.dataIndex === 'name'">
                 <a @click="showModal(text)">{{ text }}</a>
+              </template>
             </template>
         </a-table>
     </div>
@@ -20,7 +22,6 @@
             title: 'Name',
             dataIndex: 'name',
             key: 'name',
-            slots: { customRender: 'name' },
         },
         {
             title: 'Age',

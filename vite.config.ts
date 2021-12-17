@@ -1,8 +1,7 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
 
 import { resolve } from 'path';
-
 
 function pathResolve(dir: string) {
   return resolve(process.cwd(), '.', dir);
@@ -16,11 +15,11 @@ export default defineConfig({
       {
         find: /\/@\//,
         replacement: pathResolve('src') + '/',
-      }
-    ]
+      },
+    ],
   },
   server: {
     port: 3022,
-    open: true
+    open: true,
   },
-})
+});
