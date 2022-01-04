@@ -110,7 +110,7 @@
   );
 
   const onSubmit = () => {
-    validate().then(async (res) => {
+    validate().then(async () => {
       try {
         if (state.title === '新增') {
           // Add the new friend!
@@ -134,7 +134,7 @@
   };
 
   const initList = async () => {
-    state.list = await db.friends.toArray();
+    state.list = await db.friends.reverse().toArray();
   };
 
   const handleAdd = () => {
@@ -154,7 +154,7 @@
     await db.friends.update(id, { name: modalRef.name, age: modalRef.age });
   };
 
-  const onDelete = async (id:number) => {
+  const onDelete = async (id: number) => {
     await db.friends.delete(id);
     message.success('删除成功!');
     initList();
