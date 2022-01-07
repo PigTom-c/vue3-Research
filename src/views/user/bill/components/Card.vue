@@ -1,21 +1,23 @@
 <template>
-    <a-card hoverable style="width: 300px">
+    <div style="width: 300px; height: 350px;">
+      <a-card hoverable>
         <template #cover>
-            <img alt="example"
-                 src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-            />
+          <img alt="example"
+               src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+          />
         </template>
         <template class="ant-card-actions" #actions>
-            <setting-outlined key="setting" />
-            <edit-outlined key="edit" />
-            <ellipsis-outlined key="ellipsis" />
+          <setting-outlined key="setting" />
+          <edit-outlined key="edit" />
+          <ellipsis-outlined key="ellipsis" />
         </template>
         <a-card-meta title="Card title" description="This is the description">
-            <template #avatar>
-                <a-avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-            </template>
+          <template #avatar>
+            <a-avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+          </template>
         </a-card-meta>
-    </a-card>
+      </a-card>
+    </div>
 </template>
 
 <script lang="ts" setup>

@@ -47,6 +47,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'file',
     component: () => import('/@/views/file/index.vue'),
   },
+  {
+    path: '/motion',
+    name: 'motion',
+    component: () => import('/@/components/motion/index.vue'),
+  },
 ];
 
 export const router = createRouter({
