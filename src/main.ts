@@ -12,6 +12,7 @@ import { setupGlobDirectives } from './utils/instructions/index';
 
 if (import.meta.env.DEV) {
   import('vuedraggable');
+  import('immer');
 }
 
 async function bootstrap() {

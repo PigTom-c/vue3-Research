@@ -52,6 +52,16 @@ const routes: Array<RouteRecordRaw> = [
     name: 'motion',
     component: () => import('/@/components/motion/index.vue'),
   },
+  {
+    path: '/immer',
+    name: 'immer',
+    component: () => import('/@/components/immer/src/index.vue'),
+  },
+  {
+    path: '/grid',
+    name: 'grid',
+    component: () => import('/@/views/grid/index.vue'),
+  },
 ];
 
 export const router = createRouter({
