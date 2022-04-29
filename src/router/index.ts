@@ -8,9 +8,9 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('/@/views/test/Demo.vue'),
   },
   {
-    path: '/check',
-    name: 'check',
-    component: () => import('/@/views/checkbox/index.vue'),
+    path: '/textra',
+    name: 'textra',
+    component: () => import('/@/views/textra/index.vue'),
   },
   {
     path: '/table',

@@ -7,7 +7,7 @@
           <a-menu-item key="index" @click="handleTo('index','/')">
             <span>Option 1</span>
           </a-menu-item>
-          <a-menu-item key="check" @click="handleTo('check','/check')">
+          <a-menu-item key="check" @click="handleTo('textra','/textra')">
             <span>Option 2</span>
           </a-menu-item>
           <a-sub-menu key="sub1">
