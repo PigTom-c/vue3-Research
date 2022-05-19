@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { reactive, computed, defineProps, onUnmounted, PropType } from 'vue';
+  import { reactive, computed, onUnmounted, PropType } from 'vue';
   const props = defineProps({
     data: {
       type: Array as PropType<string[]>,
@@ -28,9 +28,9 @@
   type State = {
     defaultStyle: string;
     currentWord: string;
-    liStl: string;
+    liStl: string | null;
     dataCounter: number;
-    animationID: number;
+    animationID: number | null;
     filters: any;
     words: string[];
   };
