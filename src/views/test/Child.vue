@@ -6,8 +6,25 @@
 </template>
 
 <script setup lang="ts">
-  import { inject, ref, reactive } from 'vue';
+  import { inject, ref, reactive, PropType, toRef } from 'vue';
   import { Sketch } from '@ckpack/vue-color';
+
+  interface Book {
+    title: string;
+    author: string;
+    year: number;
+  }
+
+  const props = defineProps({
+    book: {
+      type: Object as PropType<Book>,
+      default: () => ({ title: 'Arrow Function Expression' }),
+      validator: (book: Book) => !!book.title,
+    },
+    callback: Function as PropType<(id: number) => void>,
+  });
+
+  let book = toRef(props, 'book');
 
   const state = reactive({
     colors: 'rgba(64,213,139,1)',
@@ -17,6 +34,8 @@
   const test = inject('test');
   const click = () => {
     console.log(test);
+    book.value.title = 'aaa';
+    console.log(props.book.title);
 
     // 深拷贝
     let obj = { x: 20, y: { z: 30 } };

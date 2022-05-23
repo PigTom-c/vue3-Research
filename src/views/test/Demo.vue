@@ -1,5 +1,5 @@
 <template>
-  <Child />
+  <Child :book="{title: 'human'}" />
   <a-select class="w-1/6" v-model:value="state.value" :options="state.options" />
   <v-chart
     v-show="state.value === 'pie'"

@@ -3,7 +3,7 @@
     <a-row :gutter="16">
       <a-col :span="12">
         <a-statistic-countdown
-          title="距离五一放假"
+          title="距离国庆放假"
           :value="state.deadline"
           format="M月 D 天 H 时 m 分 s 秒"
           style="margin-right: 50px"
@@ -35,8 +35,8 @@
   });
 
   const state = reactive({
-    distancePayroll: new Date('2022-4-6 00:00:00'),
-    deadline: new Date('2022-5-1 00:00:00'),
+    distancePayroll: new Date('2022-7-1 00:00:00'),
+    deadline: new Date('2022-10-1 00:00:00'),
   });
 
   // todo
