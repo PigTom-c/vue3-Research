@@ -9,6 +9,7 @@ import '/@/assets/css/tailwind.css';
 import 'tailwindcss/tailwind.css';
 
 import { setupGlobDirectives } from './utils/instructions/index';
+import VueHighcharts from '/@/directive/highcharts';
 
 if (import.meta.env.DEV) {
   import('vuedraggable');
@@ -19,7 +20,7 @@ async function bootstrap() {
   const app = createApp(App);
   setupRouter(app);
   setupGlobDirectives(app);
-  app.use(Antd).mount('#app');
+  app.use(VueHighcharts).use(Antd).mount('#app');
 }
 
 void bootstrap();

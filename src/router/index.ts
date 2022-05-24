@@ -62,6 +62,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'grid',
     component: () => import('/@/views/grid/index.vue'),
   },
+  {
+    path: '/high',
+    name: 'highcharts',
+    component: () => import('/@/components/highcharts/HighCharts.vue'),
+  },
 ];
 
 export const router = createRouter({

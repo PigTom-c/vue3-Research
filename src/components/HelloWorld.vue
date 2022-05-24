@@ -4,38 +4,43 @@
       <a-layout-sider v-model:collapsed="collapsed" collapsible>
         <div class="logo" />
         <a-menu theme="dark" v-model:selectedKeys="selectedKeys" mode="inline">
-          <a-menu-item key="index" @click="handleTo('index','/')">
+          <a-menu-item key="index" @click="handleTo('index', '/')">
             <span>Option 1</span>
           </a-menu-item>
-          <a-menu-item key="check" @click="handleTo('textra','/textra')">
+          <a-menu-item key="check" @click="handleTo('textra', '/textra')">
             <span>Option 2</span>
           </a-menu-item>
           <a-sub-menu key="sub1">
             <template #title>
-            <span>
-              <span>User</span>
-            </span>
+              <span>
+                <span>User</span>
+              </span>
             </template>
-            <a-menu-item key="tom" @click="handleTo('tom','/tom')">Tom</a-menu-item>
-            <a-menu-item key="bill" @click="handleTo('bill','/bill')">Bill</a-menu-item>
-            <a-menu-item key="alex" @click="handleTo('alex','/alex')">Alex</a-menu-item>
+            <a-menu-item key="tom" @click="handleTo('tom', '/tom')">Tom</a-menu-item>
+            <a-menu-item key="bill" @click="handleTo('bill', '/bill')">Bill</a-menu-item>
+            <a-menu-item key="alex" @click="handleTo('alex', '/alex')">Alex</a-menu-item>
           </a-sub-menu>
           <a-sub-menu key="sub2">
             <template #title>
-            <span>
-              <span>Team</span>
-            </span>
+              <span>
+                <span>Team</span>
+              </span>
             </template>
-            <a-menu-item key="development" @click="handleTo('development','/development')">开发部</a-menu-item>
-            <a-menu-item key="testing" @click="handleTo('testing','/testing')">测试部</a-menu-item>
+            <a-menu-item key="development" @click="handleTo('development', '/development')">
+              开发部
+            </a-menu-item>
+            <a-menu-item key="testing" @click="handleTo('testing', '/testing')">测试部</a-menu-item>
           </a-sub-menu>
-          <a-menu-item key="file" @click="handleTo('file','/file')">
+          <a-menu-item key="file" @click="handleTo('file', '/file')">
             <span>File</span>
           </a-menu-item>
         </a-menu>
       </a-layout-sider>
       <a-layout>
-        <a-layout-header @click="openNotification" style="background: #fff;padding-right: 20px;display: flex;justify-content: flex-end;" >
+        <a-layout-header
+          @click="openNotification"
+          style="background: #fff; padding-right: 20px; display: flex; justify-content: flex-end"
+        >
           hello someone!
         </a-layout-header>
         <a-layout-content style="margin: 0 16px">
@@ -53,38 +58,34 @@
       </a-layout>
     </a-layout>
   </div>
-
 </template>
 
 <script setup>
-import { h, ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import { notification } from 'ant-design-vue';
-import { SmileOutlined } from '@ant-design/icons-vue';
-import axios from 'axios';
-let collapsed = ref(false)
+  import { h, ref } from 'vue';
+  import { useRoute, useRouter } from 'vue-router';
+  import { notification } from 'ant-design-vue';
+  import { SmileOutlined } from '@ant-design/icons-vue';
+  let collapsed = ref(false);
 
+  const router = useRouter();
+  const route = useRoute();
 
-const router = useRouter()
-const route = useRoute()
+  let selectedKeys = ref(['index']);
 
-let selectedKeys = ref(['index'])
-
-  const handleTo = (name,path) => {
-    router.push({ path })
-  }
+  const handleTo = (name, path) => {
+    router.push({ path });
+  };
 
   const openNotification = () => {
     notification.open({
       message: '世上会有很多出人意料的事，比如，你以为我会举个例子。',
       icon: h(SmileOutlined, { style: 'color: #108ee9' }),
     });
-  }
+  };
 </script>
 
 <style scoped>
   .header {
-
   }
   #components-layout-demo-top-side .logo {
     float: left;

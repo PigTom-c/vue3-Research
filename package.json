@@ -6,6 +6,8 @@
     "build": "vite build"
   },
   "dependencies": {
+    "@types/highcharts": "^7.0.0",
+    "highcharts": "^9.1.2",
     "@ckpack/vue-color": "^1.1.4",
     "@types/node": "^15.12.4",
     "animejs": "^3.2.1",
