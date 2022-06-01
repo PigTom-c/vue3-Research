@@ -7,7 +7,7 @@
         <a-button @click="randomItem">random</a-button>
       </div>
       <ul v-auto-animate>
-        <li v-for="item in state.items" :key="item" @click="removeItem(item)">
+        <li v-for="(item, index) in state.items" :key="index" @click="removeItem(item)">
           {{ item }}
         </li>
       </ul>
