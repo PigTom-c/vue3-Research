@@ -6,15 +6,16 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@types/highcharts": "^7.0.0",
-    "highcharts": "^9.1.2",
     "@ckpack/vue-color": "^1.1.4",
+    "@formkit/auto-animate": "^1.0.0-beta.1",
+    "@types/highcharts": "^7.0.0",
     "@types/node": "^15.12.4",
     "animejs": "^3.2.1",
     "ant-design-vue": "3.0.0-alpha.11",
     "axios": "^0.21.1",
     "dexie": "^3.2.0",
     "echarts": "^5.2.2",
+    "highcharts": "^9.1.2",
     "immer": "^9.0.12",
     "lodash-es": "^4.17.21",
     "motion": "^10.5.0",

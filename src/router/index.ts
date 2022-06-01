@@ -67,6 +67,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'highcharts',
     component: () => import('/@/components/highcharts/HighCharts.vue'),
   },
+  {
+    path: '/auto',
+    name: 'autoAnimate',
+    component: () => import('/@/views/autoAnimate/index.vue'),
+  },
 ];
 
 export const router = createRouter({

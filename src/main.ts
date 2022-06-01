@@ -9,6 +9,7 @@ import '/@/assets/css/tailwind.css';
 import 'tailwindcss/tailwind.css';
 
 import { setupGlobDirectives } from './utils/instructions/index';
+import { setupAutoAnimate } from '/@/directive/autoAnimate/index';
 import VueHighcharts from '/@/directive/highcharts';
 
 if (import.meta.env.DEV) {
@@ -19,6 +20,7 @@ if (import.meta.env.DEV) {
 async function bootstrap() {
   const app = createApp(App);
   setupRouter(app);
+  setupAutoAnimate(app);
   setupGlobDirectives(app);
   app.use(VueHighcharts).use(Antd).mount('#app');
 }
