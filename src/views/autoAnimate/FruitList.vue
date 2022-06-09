@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul v-auto-animate>
-      <li v-for="(item, index) in state.items" :key="index">
+      <li v-for="(item) in state.items" :key="item">
         <span>{{ item }}</span>
         <span @click="removeItem(item)">
           <a-button class="my-button text-red-600" type="text">

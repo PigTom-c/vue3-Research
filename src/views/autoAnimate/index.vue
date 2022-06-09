@@ -7,7 +7,7 @@
         <a-button @click="randomItem">random</a-button>
       </div>
       <ul v-auto-animate>
-        <li v-for="(item, index) in state.items" :key="index" @click="removeItem(item)">
+        <li v-for="(item, index) in state.items" :key="item" @click="removeItem(item)">
           {{ item }}
         </li>
       </ul>
@@ -17,7 +17,7 @@
     </a-tab-pane>
     <a-tab-pane key="3" tab="Fisher-Yates shuffle">
       <ul v-auto-animate>
-        <li v-for="item in state.list" :key="item">
+        <li v-for="(item, index) in state.list" :key="item">
           {{ item }}
         </li>
       </ul>

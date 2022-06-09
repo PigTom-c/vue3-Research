@@ -72,6 +72,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'autoAnimate',
     component: () => import('/@/views/autoAnimate/index.vue'),
   },
+  {
+    path: '/promise',
+    name: 'promise',
+    component: () => import('/@/views/promise/index.vue'),
+  },
 ];
 
 export const router = createRouter({
