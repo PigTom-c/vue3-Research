@@ -35,7 +35,7 @@
   });
 
   const state = reactive({
-    distancePayroll: new Date('2022-7-1 00:00:00'),
+    distancePayroll: new Date('2022-8-15 00:00:00'),
     deadline: new Date('2022-10-1 00:00:00'),
   });
 
