@@ -7,7 +7,7 @@
           <a-menu-item key="index" @click="handleTo('index', '/')">
             <span>Option 1</span>
           </a-menu-item>
-          <a-menu-item key="check" @click="handleTo('textra', '/textra')">
+          <a-menu-item key="textra" @click="handleTo('textra', '/textra')">
             <span>Option 2</span>
           </a-menu-item>
           <a-sub-menu key="sub1">
@@ -60,19 +60,26 @@
   </div>
 </template>
 
-<script setup>
-  import { h, ref } from 'vue';
+<script setup lang="ts">
+  import { h, ref, computed, unref } from 'vue';
   import { useRoute, useRouter } from 'vue-router';
   import { notification } from 'ant-design-vue';
   import { SmileOutlined } from '@ant-design/icons-vue';
+  import useStore from '/@/store/modules/user';
+
   let collapsed = ref(false);
 
   const router = useRouter();
   const route = useRoute();
 
-  let selectedKeys = ref(['index']);
+  const state = useStore();
+  const currentPath = computed(() => state.getCurrentPath ?? 'index');
 
-  const handleTo = (name, path) => {
+  let selectedKeys = ref([unref(currentPath)]);
+
+  const handleTo = (name: string, path: string) => {
+    state.setCurrentPath(name);
+    state.currentPath = name;
     router.push({ path });
   };
 
