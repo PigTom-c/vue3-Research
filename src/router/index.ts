@@ -77,6 +77,21 @@ const routes: Array<RouteRecordRaw> = [
     name: 'promise',
     component: () => import('/@/views/promise/index.vue'),
   },
+  {
+    path: '/pinia',
+    name: 'pinia',
+    component: () => import('/@/views/pinia/index.vue'),
+  },
+  {
+    path: '/:path(.*)*',
+    name: 'PageNotFound',
+    component: () => import('/@/views/exception/Exception.vue'),
+    meta: {
+      title: 'ErrorPage',
+      hideBreadcrumb: true,
+      hideMenu: true,
+    },
+  },
 ];
 
 export const router = createRouter({
