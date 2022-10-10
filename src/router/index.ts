@@ -83,6 +83,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('/@/views/pinia/index.vue'),
   },
   {
+    path: '/xmind',
+    name: 'xmind',
+    component: () => import('/@/views/mindmap/index.vue'),
+  },
+  {
     path: '/:path(.*)*',
     name: 'PageNotFound',
     component: () => import('/@/views/exception/Exception.vue'),
