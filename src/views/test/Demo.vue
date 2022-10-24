@@ -1,11 +1,16 @@
 <template>
-  <Child :book="{title: 'human'}" />
-  <a-select class="w-1/6" v-model:value="state.value" :options="state.options" />
+  <Child ref="child" v-model:book="book" />
+  <a-select
+    class="w-1/6"
+    v-model:value="state.value"
+    :options="state.options"
+    @select="handleSelect"
+  />
   <v-chart
     v-show="state.value === 'pie'"
     class="chart"
     :init-options="state.initOptions"
-    :option="option"
+    :option="state.pie"
   />
 
   <div v-show="state.value !== 'pie'" class="flex justify-center flex-row flex-wrap">
@@ -29,15 +34,18 @@
     ref="map"
     autoresize
   />
+
+  <v-chart class="chart mt-10" :option="state.graph" :init-options="state.initOptions" />
 </template>
 
 <script setup lang="ts">
   import Child from './Child.vue';
-  import { ref, reactive, provide } from 'vue';
+  import { ref, reactive, provide, onMounted, nextTick } from 'vue';
 
   // Map of China
-  import chinaMap from './china.json';
-  import worldMap from './world.json';
+  import chinaMap from './data/china.json';
+  import worldMap from './data/world.json';
+  import webkitDep from './data/webkit.json';
   import { use, registerMap } from 'echarts/core';
   import { CanvasRenderer, SVGRenderer } from 'echarts/renderers';
   import {
@@ -48,6 +56,7 @@
     ScatterChart,
     EffectScatterChart,
     LinesChart,
+    GraphChart,
   } from 'echarts/charts';
   import {
     GridComponent,
@@ -64,10 +73,12 @@
   import VChart from 'vue-echarts';
   import getData from './data/bar';
   import getMap from './data/map';
+  import { getGraphOptions, getPieOptions } from './data/index';
 
   provide('test', 111);
 
   use([
+    GraphChart,
     RadarChart,
     ScatterChart,
     EffectScatterChart,
@@ -88,47 +99,25 @@
     TooltipComponent,
     LegendComponent,
   ]);
-  const option = ref({
-    title: {
-      text: 'Traffic Sources',
-      left: 'center',
-    },
-    tooltip: {
-      trigger: 'item',
-      formatter: '{a} <br/>{b} : {c} ({d}%)',
-    },
-    legend: {
-      orient: 'vertical',
-      left: 'left',
-      data: ['Direct', 'Email', 'Ad Networks', 'Video Ads', 'Search Engines'],
-    },
-    series: [
-      {
-        name: 'Traffic Sources',
-        type: 'pie',
-        radius: ['40%', '70%'],
-        center: ['50%', '60%'],
-        data: [
-          { value: 335, name: 'Direct' },
-          { value: 310, name: 'Email' },
-          { value: 234, name: 'Ad Networks' },
-          { value: 135, name: 'Video Ads' },
-          { value: 1548, name: 'Search Engines' },
-        ],
-        emphasis: {
-          itemStyle: {
-            shadowBlur: 10,
-            shadowOffsetX: 0,
-            shadowColor: 'rgba(0, 0, 0, 0.5)',
-          },
-        },
-      },
-    ],
+
+  const book = ref({
+    title: 'human',
+  });
+
+  const child = ref<InstanceType<typeof Child>>(null);
+
+  onMounted(() => {
+    book.value = {
+      title: 'changsha',
+    };
+    child.value.isShow = true;
   });
 
   const state = reactive({
     bar: getData(),
+    pie: getPieOptions(),
     map: getMap(),
+    graph: getGraphOptions(),
     initOptions: {
       renderer: 'svg' || 'canvas',
     },
@@ -168,6 +157,10 @@
         state.bar = getData();
       }
     }, 1000);
+  };
+
+  const handleSelect = (key: string) => {
+    console.log(key);
   };
 </script>
 
