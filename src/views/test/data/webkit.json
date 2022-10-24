@@ -1,0 +1,127 @@
+{
+  "type": "force",
+  "categories": [
+    {
+      "name": "kfc"
+    },
+    {
+      "name": "McDonalds"
+    },
+    {
+      "name": "apple"
+    },
+    {
+      "name": "coffee"
+    },
+    {
+      "name": "Other"
+    },
+    {
+      "name": "kfc18"
+    },
+    {
+      "name": "McDonalds1"
+    },
+    {
+      "name": "apple1"
+    },
+    {
+      "name": "coffee1"
+    },
+    {
+      "name": "Other1"
+    },
+    {
+      "name": "kfc2"
+    },
+    {
+      "name": "McDonalds2"
+    },
+    {
+      "name": "apple2"
+    },
+    {
+      "name": "coffee2"
+    },
+    {
+      "name": "Other2"
+    },
+    {
+      "name": "kfc3"
+    },
+    {
+      "name": "McDonalds3"
+    },
+    {
+      "name": "apple3"
+    },
+    {
+      "name": "coffee3"
+    },
+    {
+      "name": "Other3"
+    },
+    {
+      "name": "kfc4"
+    },
+    {
+      "name": "McDonalds4"
+    },
+    {
+      "name": "apple4"
+    },
+    {
+      "name": "coffee4"
+    },
+    {
+      "name": "Other4"
+    }
+  ],
+  "nodes": [
+    {
+      "name": "zs",
+      "value": 1,
+      "category": "kfc"
+    },
+    {
+      "name": "ls",
+      "value": 1,
+      "category": "kfc"
+    },
+    {
+      "name": "jack",
+      "value": 1,
+      "category": "McDonalds"
+    },
+    {
+      "name": "tom",
+      "value": 1,
+      "category": "apple"
+    },
+    {
+      "name": "pig",
+      "value": 1,
+      "category": "coffee"
+    },
+    {
+      "name": "walt",
+      "value": 1,
+      "category": "Other"
+    },
+    {
+      "name": "空警2000型预警指挥机空警2000型预警指挥机空警2000型预警指挥机空警2000型预警指挥机空警2000型预警指挥机空警2000型预警指挥机空警2000型预警指挥机空警2000型预警指挥机空警2000型预警指挥机空警2000型预警指挥机空警2000型预警指挥机空警2000型预警指挥机空警2000型预警指挥机空警2000型预警指挥机空警2000型预警指挥机空警2000型预警指挥机空警2000型预警指挥机",
+      "value": 1,
+      "category": "kfc18"
+    }
+  ],
+  "links": [
+    {
+      "source": "zs",
+      "target": "ls"
+    },
+    {
+      "source": "zs",
+      "target": "jack"
+    }
+  ]
+}
