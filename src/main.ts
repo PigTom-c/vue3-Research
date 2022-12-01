@@ -5,7 +5,6 @@ import Antd from 'ant-design-vue';
 import FightingDesign from 'fighting-design';
 import { setupRouter } from './router';
 import 'ant-design-vue/dist/antd.css';
-import '/@/assets/css/tailwind.css';
 import 'tailwindcss/tailwind.css';
 import 'fighting-design/dist/index.css';
 
