@@ -88,6 +88,36 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('/@/views/mindmap/index.vue'),
   },
   {
+    path: '/copy',
+    name: 'copy',
+    component: () => import('/@/views/directive/copyDirect/index.vue'),
+  },
+  {
+    path: '/waterMarker',
+    name: 'waterMarker',
+    component: () => import('/@/views/directive/watermarkDirect/index.vue'),
+  },
+  {
+    path: '/draggable',
+    name: 'draggable',
+    component: () => import('/@/views/directive/dragDirect/index.vue'),
+  },
+  {
+    path: '/debounce',
+    name: 'debounce',
+    component: () => import('/@/views/directive/debounceDirect/index.vue'),
+  },
+  {
+    path: '/throttle',
+    name: 'throttle',
+    component: () => import('/@/views/directive/throttleDirect/index.vue'),
+  },
+  {
+    path: '/longpress',
+    name: 'longpress',
+    component: () => import('/@/views/directive/longpressDirect/index.vue'),
+  },
+  {
     path: '/:path(.*)*',
     name: 'PageNotFound',
     component: () => import('/@/views/exception/Exception.vue'),

@@ -34,6 +34,19 @@
           <a-menu-item key="file" @click="handleTo('file', '/file')">
             <span>File</span>
           </a-menu-item>
+          <a-sub-menu key="directive">
+            <template #title>
+              <span>
+                <span>自定义指令</span>
+              </span>
+            </template>
+            <a-menu-item key="copy" @click="handleTo('copy', '/copy')">复制指令</a-menu-item>
+            <a-menu-item key="waterMarker" @click="handleTo('waterMarker', '/waterMarker')">水印指令</a-menu-item>
+            <a-menu-item key="draggable" @click="handleTo('draggable', '/draggable')">拖拽指令</a-menu-item>
+            <a-menu-item key="debounce" @click="handleTo('debounce', '/debounce')">防抖指令</a-menu-item>
+            <a-menu-item key="throttle" @click="handleTo('throttle', '/throttle')">节流指令</a-menu-item>
+            <a-menu-item key="longpress" @click="handleTo('longpress', '/longpress')">长按指令</a-menu-item>
+          </a-sub-menu>
         </a-menu>
       </a-layout-sider>
       <a-layout>
