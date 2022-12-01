@@ -110,7 +110,7 @@
     book.value = {
       title: 'changsha',
     };
-    child.value.isShow = true;
+    // child.value.isShow = true;
   });
 
   const state = reactive({

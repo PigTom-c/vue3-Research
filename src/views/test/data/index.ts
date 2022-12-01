@@ -95,7 +95,14 @@ export const getGraphOptions = () => {
           position: 'insideTopLeft',
           overflow: 'break',
           padding: [10, 10, 10, 10],
-          formatter: '{b|{b}}' + '\n\n' + ' {c|{c}}',
+          formatter: function (params: Recordable) {
+            if (params.data.value && params.data.value.length > 5) {
+              console.log(111);
+              return params.data.name + '\n\n' + '';
+            }
+            let str = '{b|' + params.data.name + '}' + '\n\n' + '{c|' + params.data.value + '}';
+            return str;
+          },
           rich: {
             b: {
               color: 'white',
