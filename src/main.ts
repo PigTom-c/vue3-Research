@@ -7,6 +7,7 @@ import { setupRouter } from './router';
 import 'ant-design-vue/dist/antd.css';
 import 'tailwindcss/tailwind.css';
 import 'fighting-design/dist/index.css';
+import '/@/style/font/index.less'
 
 import directives from '/@/directive/index';
 import VueHighcharts from '/@/directive/highcharts';
