@@ -13,11 +13,14 @@
             <a-menu-item
               v-if="!item.children && !item.meta?.hideMenu"
               :key="item.name"
-              @click="handleTo(item.name, `/${item.name}`)"
+              @click="handleTo(item.name, `${item.path}`)"
             >
               <span>{{ item.meta.title }}</span>
             </a-menu-item>
-            <a-sub-menu v-if="item?.children?.length > 0 && !item.meta?.hideMenu" :key="item.meta.title">
+            <a-sub-menu
+              v-if="item?.children?.length > 0 && !item.meta?.hideMenu"
+              :key="item.meta.title"
+            >
               <template #title>
                 <span>
                   <span>{{ item.meta.title }}</span>
@@ -27,7 +30,7 @@
                 :key="items.name"
                 v-for="items in item.children"
                 v-if="!item.meta.hideMenu"
-                @click="handleTo(items.name, `/${items.name}`)"
+                @click="handleTo(items.name, `${items.path}`)"
               >
                 {{ items.meta?.title }}
               </a-menu-item>

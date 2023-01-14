@@ -7,8 +7,8 @@
         <a-button @click="randomItem">random</a-button>
       </div>
       <ul v-auto-animate>
-        <li v-for="(item, index) in state.items" :key="item" @click="removeItem(item)">
-          {{ item }}
+        <li v-for="(item, index) in state.items" :key="item.id" @click="removeItem(item.id)">
+          {{ item.value }}
         </li>
       </ul>
     </a-tab-pane>
@@ -30,34 +30,106 @@
   import { reactive } from 'vue';
   import { shuffle } from 'lodash-es';
   import FruitList from './FruitList.vue';
+  import { buildUUID } from '../../utils/uuid';
 
   const state = reactive({
     items: [
-      '😏',
-      '😐',
-      '😑',
-      '😕',
-      '😊',
-      '😂',
-      '🤣',
-      '😍',
-      '😒',
-      '😘',
-      '😁',
-      '😉',
-      '😎',
-      '😢',
-      '😜',
-      '🤦‍♀',
-      '🤦‍♂',
-      '🤷‍♀',
-      '🤷‍♂',
-      '🌹',
-      '😃',
-      '👀',
-      '🤔',
-      '😆',
-      '🤢',
+      {
+        id: 1,
+        value: '😏',
+      },
+      {
+        id: 2,
+        value: '😐',
+      },
+      {
+        id: 3,
+        value: '😑',
+      },
+      {
+        id: 4,
+        value: '😕',
+      },
+      {
+        id: 5,
+        value: '😊',
+      },
+      {
+        id: 6,
+        value: '😂',
+      },
+      {
+        id: 7,
+        value: '🤣',
+      },
+      {
+        id: 8,
+        value: '😍',
+      },
+      {
+        id: 9,
+        value: '😒',
+      },
+      {
+        id: 10,
+        value: '😘',
+      },
+      {
+        id: 11,
+        value: '😁',
+      },
+      {
+        id: 12,
+        value: '😉',
+      },
+      {
+        id: 13,
+        value: '😎',
+      },
+      {
+        id: 14,
+        value: '😢',
+      },
+      {
+        id: 15,
+        value: '😜',
+      },
+      {
+        id: 16,
+        value: '🤦‍♀',
+      },
+      {
+        id: 17,
+        value: '🤷‍♀',
+      },
+      {
+        id: 18,
+        value: '🤷‍♂',
+      },
+      {
+        id: 19,
+        value: '🌹',
+      },
+      {
+        id: 20,
+        value: '😃',
+      },
+      {
+        id: 21,
+        value: '👀',
+      },
+      {
+        id: 22,
+        value: '🤔',
+      },
+      {
+        id: 23,
+        value: '😆',
+      },
+      {
+        id: 24,
+        value: '🤢',
+      },
     ],
     activeKey: '1',
     list: [1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -65,11 +137,11 @@
 
   function removeItem(toRemove) {
     console.log(toRemove);
-    state.items = state.items.filter((item) => item !== toRemove);
+    state.items = state.items.filter((item) => item.id !== toRemove);
   }
 
   function addItem() {
-    state.items.push('😶');
+    state.items.push({ id: buildUUID(), value: '😶' });
   }
 
   function randomItem() {

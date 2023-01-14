@@ -6,7 +6,6 @@ import debounce from './modules/debounce';
 import throttle from './modules/throttle';
 import longpress from './modules/longpress';
 import preventClick from './modules/clickStatefrom';
-import { autoAnimatePlugin } from '@formkit/auto-animate/vue';
 
 const directivesList: any = {
   // Custom directives
@@ -17,7 +16,6 @@ const directivesList: any = {
   throttle,
   longpress,
   preventClick,
-  autoAnimatePlugin,
 };
 
 const directives = {
