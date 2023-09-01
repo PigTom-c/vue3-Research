@@ -9,6 +9,7 @@ const basicRoutes: Array<AppRouteModule> = [
     component: null,
     meta: {
       layout: false,
+      hideMenu: true,
     },
   },
   {

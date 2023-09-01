@@ -17,6 +17,7 @@
             >
               <span>{{ item.meta.title }}</span>
             </a-menu-item>
+
             <a-sub-menu
               v-if="item?.children?.length > 0 && !item.meta?.hideMenu"
               :key="item.meta.title"
@@ -30,7 +31,7 @@
                 :key="items.name"
                 v-for="items in item.children"
                 v-if="!item.meta.hideMenu"
-                @click="handleTo(items.name, `${items.path}`)"
+                @click="handleToChild(items.name)"
               >
                 {{ items.meta?.title }}
               </a-menu-item>
@@ -39,19 +40,16 @@
         </a-menu>
       </a-layout-sider>
       <a-layout>
-        <a-layout-header
-          @click="openNotification"
-          style="background: #fff; padding-right: 20px; display: flex; justify-content: flex-end"
-        >
+        <a-layout-header @click="openNotification" class="layout-header">
           hello someone!
         </a-layout-header>
-        <a-layout-content style="margin: 0 16px">
+        <a-layout-content class="layout-content">
           <a-breadcrumb style="margin: 16px 0">
             <a-breadcrumb-item>User</a-breadcrumb-item>
             <a-breadcrumb-item>Bill</a-breadcrumb-item>
           </a-breadcrumb>
-          <div :style="{ padding: '24px', background: '#fff', minHeight: '740px' }">
-            <router-view></router-view>
+          <div class="main-content">
+            <router-view />
           </div>
         </a-layout-content>
         <a-layout-footer style="text-align: center">
@@ -74,6 +72,8 @@
   const router = useRouter();
   const route = useRoute();
 
+  const themeColor = ref('#fff');
+
   const menus = ref<readonly RouteRecordRaw[]>();
 
   onMounted(() => {
@@ -90,9 +90,16 @@
   const openKeys = ref([]);
 
   const handleTo = (name: string, path: string) => {
+    console.log(name, path);
     state.setCurrentPath(name);
     state.currentPath = name;
     router.push({ path });
+  };
+
+  const handleToChild = (name: string) => {
+    state.setCurrentPath(name);
+    state.currentPath = name;
+    router.push({ name });
   };
 
   const openNotification = () => {
@@ -121,5 +128,20 @@
 
   .site-layout-background {
     background: #fff;
+  }
+  .layout-header {
+    background: v-bind('themeColor');
+    padding-right: 20px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .layout-content {
+    margin: 0 16px;
+  }
+  .main-content {
+    padding: 24px;
+    background: #fff;
+    min-height: 740px;
+    height: 100%;
   }
 </style>

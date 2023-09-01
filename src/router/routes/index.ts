@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import type { AppRouteModule } from '/@/router/types';
+const LAYOUT = () => import('/@/layouts/DefaultLayout.vue');
 
 export const routes: Array<AppRouteModule> = [
   {
@@ -31,12 +32,13 @@ export const routes: Array<AppRouteModule> = [
     path: '/user',
     name: 'system',
     redirect: '/user/tom',
+    component: LAYOUT,
     meta: {
       title: '系统管理',
     },
     children: [
       {
-        path: '/alex',
+        path: 'alex',
         name: 'alex',
         meta: {
           title: 'alex',
@@ -44,7 +46,7 @@ export const routes: Array<AppRouteModule> = [
         component: () => import('/@/views/user/alex/index.vue'),
       },
       {
-        path: '/bill',
+        path: 'bill',
         name: 'bill',
         meta: {
           title: 'bill',
@@ -52,7 +54,7 @@ export const routes: Array<AppRouteModule> = [
         component: () => import('/@/views/user/bill/index.vue'),
       },
       {
-        path: '/tom',
+        path: 'tom',
         name: 'tom',
         meta: {
           title: 'tom',
@@ -65,12 +67,13 @@ export const routes: Array<AppRouteModule> = [
     path: '/team',
     name: 'team',
     redirect: '/team/development',
+    component: LAYOUT,
     meta: {
       title: 'Team',
     },
     children: [
       {
-        path: '/development',
+        path: 'development',
         name: 'development',
         meta: {
           title: 'development',
@@ -78,7 +81,7 @@ export const routes: Array<AppRouteModule> = [
         component: () => import('/@/views/team/development/index.vue'),
       },
       {
-        path: '/testing',
+        path: 'testing',
         name: 'testing',
         meta: {
           title: 'testing',
@@ -166,6 +169,7 @@ export const routes: Array<AppRouteModule> = [
     meta: {
       title: 'CustomDirective',
     },
+    component: LAYOUT,
     children: [
       {
         path: '/copy',
