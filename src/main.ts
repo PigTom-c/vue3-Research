@@ -4,10 +4,10 @@ import App from './App.vue';
 import Antd from 'ant-design-vue';
 import FightingDesign from 'fighting-design';
 import { setupRouter } from './router';
-import 'ant-design-vue/dist/antd.css';
+import 'ant-design-vue/dist/reset.css';
 import 'tailwindcss/tailwind.css';
 import 'fighting-design/dist/index.css';
-import '/@/style/font/index.less'
+import '/@/style/font/index.less';
 
 import directives from '/@/directive/index';
 import VueHighcharts from '/@/directive/highcharts';

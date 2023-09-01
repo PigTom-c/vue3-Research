@@ -1,7 +1,7 @@
 <template>
   <div>
     <a-modal
-      v-model:visible="state.visible"
+      v-model:open="state.visible"
       :title="state.title"
       @ok="onSubmit"
       @cancel="resetFields"
