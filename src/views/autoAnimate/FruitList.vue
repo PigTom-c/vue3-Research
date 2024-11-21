@@ -1,9 +1,9 @@
 <template>
   <div>
     <ul v-auto-animate>
-      <li v-for="(item) in state.items" :key="item">
-        <span>{{ item }}</span>
-        <span @click="removeItem(item)">
+      <li v-for="item in state.items" :key="item.key">
+        <span>{{ item.name }}</span>
+        <span @click="removeItem(item.key)">
           <a-button class="my-button text-red-600" type="text">
             <template #icon><close-outlined /></template>
           </a-button>
@@ -20,18 +20,32 @@
 
   import { reactive } from 'vue';
   import { shuffle } from 'lodash-es';
+  import { buildUUID } from '/@/utils/uuid';
 
   const state = reactive({
-    items: ['🥝猕猴桃', '🥥椰子', '🍇葡萄', '🍈哈密瓜', '🍉西瓜', '🍊橘子', '🍋菠萝', '🍌香蕉'],
+    items: [
+      { key: '1', name: '🥝猕猴桃' },
+      { key: '2', name: '🥥椰子' },
+      { key: '3', name: '🍇葡萄' },
+      { key: '4', name: '🍈哈密瓜' },
+      { key: '5', name: '🍉西瓜' },
+      { key: '6', name: '🍊橘子' },
+      { key: '7', name: '🍋菠萝' },
+      { key: '8', name: '🍌香蕉' },
+    ],
   });
 
   function removeItem(toRemove) {
     console.log(toRemove);
-    state.items = state.items.filter((item) => item !== toRemove);
+    state.items = state.items.filter((item) => item.key !== toRemove);
   }
 
   function addItem() {
-    state.items.push('🍏青苹果');
+    const obj = {
+      key: buildUUID(),
+      name: '🍏青苹果',
+    };
+    state.items.push(obj);
   }
 
   function randomItem() {

@@ -9,6 +9,7 @@ import 'tailwindcss/tailwind.css';
 import 'fighting-design/dist/index.css';
 import '/@/style/font/index.less';
 
+import { autoAnimatePlugin } from '@formkit/auto-animate/vue';
 import directives from '/@/directive/index';
 import VueHighcharts from '/@/directive/highcharts';
 import { setupStore } from '/@/store';
@@ -22,7 +23,13 @@ async function bootstrap() {
   const app = createApp(App);
   setupRouter(app);
   setupStore(app);
-  app.use(VueHighcharts).use(directives).use(Antd).use(FightingDesign).mount('#app');
+  app
+    .use(VueHighcharts)
+    .use(autoAnimatePlugin)
+    .use(directives)
+    .use(Antd)
+    .use(FightingDesign)
+    .mount('#app');
 }
 
 void bootstrap();
